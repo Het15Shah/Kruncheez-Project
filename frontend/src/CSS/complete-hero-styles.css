@@ -1,0 +1,182 @@
+/* ========================================
+   HERO SECTION ANIMATIONS & STYLES
+   Add to your global CSS or Tailwind config
+   ======================================== */
+
+/* === CORE ANIMATIONS === */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollLine {
+  0%, 100% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+/* === ANIMATION CLASSES === */
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-fade-in-delay-1 {
+  animation: fadeIn 1s ease-out 0.2s forwards;
+}
+
+.animate-fade-in-delay-2 {
+  animation: fadeIn 1s ease-out 0.4s forwards;
+}
+
+.animate-fade-in-delay-3 {
+  animation: fadeIn 1s ease-out 0.6s forwards;
+}
+
+.animate-fade-in-delay-4 {
+  animation: fadeIn 1s ease-out 0.8s forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 1s ease-out 0.5s forwards;
+}
+
+.animate-scroll-line {
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+/* === UTILITY CLASSES === */
+
+/* Diagonal clip for image/text separation */
+.clip-diagonal {
+  clip-path: polygon(0 0, 65% 0, 55% 100%, 0 100%);
+}
+
+@media (max-width: 768px) {
+  .clip-diagonal {
+    clip-path: none;
+  }
+}
+
+/* Better image rendering */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Smooth backdrop blur with fallback */
+@supports (backdrop-filter: blur(12px)) {
+  .backdrop-blur-custom {
+    backdrop-filter: blur(12px) saturate(180%);
+  }
+}
+
+@supports not (backdrop-filter: blur(12px)) {
+  .backdrop-blur-custom {
+    background-color: rgba(255, 248, 231, 0.95);
+  }
+}
+
+/* === RESPONSIVE TYPOGRAPHY === */
+
+/* Ensures text is readable on all screen sizes */
+@media (max-width: 640px) {
+  h1 {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+}
+
+/* === HOVER EFFECTS FOR BUTTONS === */
+
+/* Enhanced button interactions */
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* === PERFORMANCE OPTIMIZATIONS === */
+
+/* GPU acceleration for smooth animations */
+.animate-fade-in,
+.animate-fade-in-delay-1,
+.animate-fade-in-delay-2,
+.animate-fade-in-delay-3,
+.animate-fade-in-delay-4,
+.animate-slide-up {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Prevent layout shift during load */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* === ACCESSIBILITY === */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* === CUSTOM SHADOWS FOR PREMIUM FEEL === */
+
+.shadow-premium {
+  box-shadow: 
+    0 10px 40px rgba(62, 39, 35, 0.1),
+    0 2px 8px rgba(62, 39, 35, 0.06);
+}
+
+.shadow-premium-lg {
+  box-shadow: 
+    0 20px 60px rgba(62, 39, 35, 0.15),
+    0 8px 16px rgba(62, 39, 35, 0.08);
+}
+
+/* === GRADIENT TEXT (if needed) === */
+
+.gradient-text {
+  background: linear-gradient(135deg, #C49A6C 0%, #5D4037 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

@@ -1,0 +1,120 @@
+/* ========================================
+   OUR STORY SECTION - SCROLL ANIMATIONS
+   Add to your global CSS file
+   ======================================== */
+
+/* === SCROLL-TRIGGERED FADE IN ANIMATIONS === */
+
+@keyframes fadeInOnScroll {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Basic fade-in class (trigger with Intersection Observer or library) */
+.fade-in-on-scroll {
+  opacity: 0;
+  animation: fadeInOnScroll 1s ease-out forwards;
+}
+
+.fade-in-on-scroll-delay {
+  opacity: 0;
+  animation: fadeInOnScroll 1s ease-out 0.2s forwards;
+}
+
+.fade-in-on-scroll-delay-2 {
+  opacity: 0;
+  animation: fadeInOnScroll 1s ease-out 0.4s forwards;
+}
+
+/* === TIMELINE ANIMATIONS === */
+
+/* Make timeline dots pulse on hover */
+.timeline-dot {
+  transition: all 0.3s ease;
+}
+
+.timeline-dot:hover {
+  transform: scale(1.5);
+  box-shadow: 0 0 20px rgba(196, 154, 108, 0.6);
+}
+
+/* === IMAGE HOVER EFFECTS === */
+
+/* Subtle zoom on hover for gallery images */
+.gallery-image {
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.gallery-image img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-image:hover img {
+  transform: scale(1.08);
+}
+
+/* === HERO SECTION PARALLAX (Optional) === */
+
+/* If you want a parallax effect on the hero image */
+.parallax-image {
+  transition: transform 0.3s ease-out;
+}
+
+/* Add this with JavaScript:
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  const parallax = document.querySelector('.parallax-image');
+  if (parallax) {
+    parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+  }
+});
+*/
+
+/* === PERFORMANCE OPTIMIZATIONS === */
+
+/* GPU acceleration for smooth animations */
+.fade-in-on-scroll,
+.fade-in-on-scroll-delay,
+.fade-in-on-scroll-delay-2 {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+
+@media (max-width: 768px) {
+  /* Reduce animation delays on mobile for faster feel */
+  .fade-in-on-scroll-delay {
+    animation-delay: 0.1s;
+  }
+  
+  .fade-in-on-scroll-delay-2 {
+    animation-delay: 0.2s;
+  }
+}
+
+/* === ACCESSIBILITY === */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-on-scroll,
+  .fade-in-on-scroll-delay,
+  .fade-in-on-scroll-delay-2 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .gallery-image img,
+  .timeline-dot {
+    transition: none;
+  }
+}

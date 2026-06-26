@@ -1,0 +1,180 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;700&display=swap");
+
+@config "../tailwind.config.js";
+@import "tailwindcss";
+
+/* =========================
+   Base
+========================= */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans bg-cream text-charcoal antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif text-deep-espresso leading-tight;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+  }
+  h3 {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  a {
+    @apply text-deep-espresso underline-offset-2 transition-colors;
+  }
+
+  a:hover {
+    @apply text-warm-caramel underline;
+  }
+
+  :focus-visible {
+    outline: 2px solid #c49a6c;
+    outline-offset: 2px;
+  }
+}
+
+/* =========================
+   Components
+========================= */
+@layer components {
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium transition-all duration-300 focus:outline-none;
+  }
+
+  .btn:focus-visible {
+    @apply ring-2 ring-offset-2 ring-warm-caramel;
+  }
+
+  .btn-primary {
+    @apply bg-rich-chocolate text-cream;
+  }
+
+  .btn-primary:hover {
+    @apply bg-rich-chocolate-hover shadow-lg -translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-warm-caramel text-cream;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-warm-caramel-hover shadow-lg -translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply border-2 border-rich-chocolate text-rich-chocolate bg-cream;
+  }
+
+  .btn-outline:hover {
+    @apply bg-rich-chocolate text-cream;
+  }
+
+  .btn-lg {
+    @apply px-8 py-4 text-lg;
+  }
+
+  .btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+
+  /* Layout */
+  .section-container {
+    @apply mx-auto max-w-8xl px-10;
+  }
+
+  @media (max-width: 768px) {
+    .section-container {
+      @apply px-6;
+    }
+  }
+
+  /* Cards */
+  .card {
+    @apply rounded-xl bg-pure-white transition-all duration-300 hover:-translate-y-2;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Typography helpers */
+  .text-display {
+    @apply font-display;
+  }
+}
+
+/* =========================
+   Utilities
+========================= */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .bg-pattern {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      #f4e4d7 1px,
+      transparent 1px
+    );
+    background-size: 20px 20px;
+  }
+
+  .hover-lift {
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* =========================
+   Animations
+========================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
