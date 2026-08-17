@@ -1,6 +1,6 @@
 # Kruncheez - Premier Artisanal Patisserie 🍰
 
-Welcome to the Kruncheez project! Kruncheez is a modern web application for a premier artisanal patisserie based in Anand, Gujarat. Crafting memories since 2018, the shop specializes in signature Biscoff cheesecakes, authentic French pastries, and handcrafted celebration cakes.
+Welcome to the Kruncheez project! Kruncheez is a modern web application for a premier artisanal patisserie based in Gujarat. Crafting memories since 2018, the shop specializes in signature Biscoff cheesecakes, authentic French pastries, and handcrafted celebration cakes.
 
 This repository contains the source code for the Kruncheez web application.
 
@@ -33,7 +33,7 @@ krunchee/
 - **Icons**: [Lucide React](https://lucide.dev/)
 
 ### Backend
-- *Currently in development. Technologies to be determined.*
+- *Currently in development.*
 
 ## 🏃‍♂️ Getting Started
 
